@@ -1,6 +1,6 @@
 {
   "name": "pi-boinc-monitor",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Get current BOINC tasks, CPU load, and temperature in your Raspberry Pi command line.",
   "keywords": [
     "raspberry",

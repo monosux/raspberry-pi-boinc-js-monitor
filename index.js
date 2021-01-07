@@ -79,7 +79,10 @@ const draw = table => {
     );
     console.log("");
     console.log(
-        asciichart.plot(data.temp.history, { colors: [asciichart.red] })
+        asciichart.plot(data.temp.history, {
+            colors: [asciichart.red],
+            height: 5
+        })
     );
     console.log("");
     console.log(
