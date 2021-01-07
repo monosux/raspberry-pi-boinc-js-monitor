@@ -9,16 +9,16 @@ Get current BOINC tasks, CPU load, and temperature in your command line.
 ## Installation
 
 ```
-    // using npm
-    npm i pi-boinc-monitor -g
-    // or yarn
-    yarn global add pi-boinc-monitor
+// using npm
+npm i pi-boinc-monitor -g
+// or yarn
+yarn global add pi-boinc-monitor
 ```
 
 ## Run
 
 ```
-    pi-boinc-monitor
+pi-boinc-monitor
 ```
 
 ## Using
