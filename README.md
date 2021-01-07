@@ -2,7 +2,7 @@
 
 ## About
 
-Get current BOINC tasks, CPU load, and temperature in your command line.
+Get current BOINC tasks, CPU load, and temperature in your Raspberry Pi command line.
 
 ![Example](assets/image.png)
 
