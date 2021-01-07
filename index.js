@@ -89,7 +89,7 @@ const get_cpu = () => {
                     )) /
                     100
             );
-        }, 500);
+        }, 1000);
     });
 };
 
@@ -140,11 +140,17 @@ const monitor = setIntervalAsync(async () => {
 
         if (data.temp.current > data.temp.max)
             data.temp.max = data.temp.current;
-        if (data.temp.min == 0 || data.temp.current < data.temp.min)
+        if (
+            data.temp.min == 0 ||
+            (data.temp.current < data.temp.min && data.temp.current != 0)
+        )
             data.temp.min = data.temp.current;
 
         if (data.cpu.current > data.cpu.max) data.cpu.max = data.cpu.current;
-        if (data.cpu.min == 0 || data.cpu.current < data.cpu.min)
+        if (
+            data.cpu.min == 0 ||
+            (data.cpu.current < data.cpu.min && data.cpu.current != 0)
+        )
             data.cpu.min = data.cpu.current;
 
         data.temp.history.push(parseFloat(data.temp.current, 10));
