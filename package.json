@@ -1,23 +1,23 @@
 {
   "name": "pi-boinc-monitor",
-	"version": "1.0.0",
-	"description": "Get current BOINC tasks, CPU load, and temperature in your Raspberry Pi command line.",
-	"keywords": [
+  "version": "1.0.1",
+  "description": "Get current BOINC tasks, CPU load, and temperature in your Raspberry Pi command line.",
+  "keywords": [
     "raspberry",
-		"raspberry pi",
-		"boinc",
-		"cli"
-	],
-	"homepage": "https://github.com/monosux/raspberry-pi-boinc-js-monitor",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/monosux/raspberry-pi-boinc-js-monitor.git"
-	},
-	"bugs": {
-		"url": "https://github.com/monosux/raspberry-pi-boinc-js-monitor/issues"
-	},
-	"author": "Sergey Alexeev <alexeev.sergey.a@gmail.com>",
-	"license": "MIT",
+    "raspberry pi",
+    "boinc",
+    "cli"
+  ],
+  "homepage": "https://github.com/monosux/raspberry-pi-boinc-js-monitor",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/monosux/raspberry-pi-boinc-js-monitor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/monosux/raspberry-pi-boinc-js-monitor/issues"
+  },
+  "author": "Sergey Alexeev <alexeev.sergey.a@gmail.com>",
+  "license": "MIT",
   "main": "index.js",
   "bin": {
     "pi-boinc-monitor": "index.js"
