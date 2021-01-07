@@ -1,16 +1,14 @@
 #!/usr/bin/env node
 
 const spawn = require("child_process").spawn;
+const os = require("os");
 const chalk = require("chalk");
 const chalkTable = require("chalk-table");
 const asciichart = require("asciichart");
-const osu = require("node-os-utils");
 const {
     setIntervalAsync,
     clearIntervalAsync
 } = require("set-interval-async/dynamic");
-
-const oscpu = osu.cpu;
 
 const data = {
     cpu: { current: 0, min: 0, max: 0, history: [] },
@@ -62,6 +60,39 @@ const get_boinc = () => {
     });
 };
 
+const get_cpu_current = () => {
+    let cpus = os.cpus();
+    let idle = 0;
+    let tick = 0;
+    for (let i = 0; i < cpus.length; i++) {
+        for (let type in cpus[i].times) {
+            tick += cpus[i].times[type];
+        }
+        idle += cpus[i].times.idle;
+    }
+    return {
+        idle: idle / cpus.length,
+        total: tick / cpus.length
+    };
+};
+
+const get_cpu = () => {
+    return new Promise(resolve => {
+        let start = get_cpu_current();
+        setTimeout(() => {
+            let end = get_cpu_current();
+            resolve(
+                (10000 -
+                    Math.round(
+                        (10000 * (end.idle - start.idle)) /
+                            (end.total - start.total)
+                    )) /
+                    100
+            );
+        }, 500);
+    });
+};
+
 const draw = table => {
     console.clear();
     console.log(
@@ -103,7 +134,7 @@ const draw = table => {
 const monitor = setIntervalAsync(async () => {
     try {
         data.temp.current = await get_temperature();
-        data.cpu.current = await oscpu.usage();
+        data.cpu.current = await get_cpu();
         let tasks = await get_boinc();
         let lines = [];
 
