@@ -27,7 +27,7 @@ const patterns = [
 
 const get_temperature = () => {
     return new Promise((resolve, reject) => {
-        let cmd = spawn("/opt/vc/bin/vcgencmd", ["measure_temp"]);
+        let cmd = spawn("vcgencmd", ["measure_temp"]);
         cmd.stdout.on("data", buf =>
             resolve(buf.toString("utf8").split("=")[1].split("'")[0])
         );
